@@ -16,7 +16,7 @@ def localize_url(url):
 r = re.sub("\"" + base_url + "(.*?)\"", localize_url, open("odaowl.html").read())
 
 r = re.sub("http://visualdataweb.de/webvowl/#iri=http://localhost:8000/rdf.ttl", 
-           f"http://visualdataweb.de/webvowl/#iri={published_url}/rdf.ttl",
+           f"http://visualdataweb.de/webvowl/#iri={published_url}rdf.ttl",
            r
            )
 

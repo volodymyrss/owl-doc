@@ -1,0 +1,40 @@
+@prefix : <http://odahub.io/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://odahub.io/ontology> a owl:Ontology .
+
+:isRequestingAstroObject a owl:ObjectProperty ;
+    rdfs:range :AstrophysicalObject ;
+    rdfs:subPropertyOf :isRequestingParameter .
+
+:AstroqueryModule a owl:Class ;
+    rdfs:label "astroquery module"^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:SkyCoordinates a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+:isRequesting a owl:ObjectProperty ;
+    rdfs:domain :Workflow ;
+    rdfs:range :AstrophysicalObject,
+        :AstroqueryModule,
+        :SkyCoordinates ;
+    rdfs:subPropertyOf :isUsing .
+
+:isRequestingParameter a owl:ObjectProperty ;
+    rdfs:subPropertyOf :isRequesting .
+
+:isUsing a owl:ObjectProperty ;
+    rdfs:domain :Workflow ;
+    rdfs:range owl:Thing .
+
+:AstrophysicalObject a owl:Class ;
+    rdfs:label "astrophysical object"^^xsd:string ;
+    rdfs:subClassOf owl:Thing .
+
+:Workflow a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+
